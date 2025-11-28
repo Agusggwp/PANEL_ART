@@ -71,7 +71,7 @@ if (!isLoggedIn()) redirect('index.php');
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <a href="ftp.php" class="bg-gradient-to-br from-green-500 to-green-600 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 text-white flex flex-col items-center justify-center">
                 <span class="material-icons text-6xl mb-4">folder_shared</span>
-                <span class="text-xl font-semibold">FTP Accounts</span>
+                <span class="text-xl font-semibold">Hosting Accounts</span>
             </a>
 
             <a href="domains.php" class="bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 text-white flex flex-col items-center justify-center">
