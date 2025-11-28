@@ -37,7 +37,7 @@ if (!isLoggedIn()) redirect('index.php');
 
             <a href="ftp.php" class="flex items-center px-4 py-3 mb-2 rounded-lg hover:bg-gray-700 transition-all duration-200 group <?= $current == 'ftp.php' ? 'bg-gray-700 shadow-inner' : '' ?>">
                 <span class="material-icons mr-3 text-green-400 group-hover:text-green-300">folder</span>
-                <span class="font-medium">FTP Accounts</span>
+                <span class="font-medium">Hosting Accounts</span>
             </a>
 
             <a href="domains.php" class="flex items-center px-4 py-3 mb-2 rounded-lg hover:bg-gray-700 transition-all duration-200 group <?= $current == 'domains.php' ? 'bg-gray-700 shadow-inner' : '' ?>">
