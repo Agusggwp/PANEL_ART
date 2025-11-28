@@ -1,9 +1,9 @@
 <?php
 // config.php
 $host = 'localhost';
-$db   = 'ftp_cpanel';
-$user = 'root';
-$pass = '';
+$db   = 'u689664472_panel';
+$user = 'u689664472_panel';
+$pass = 'S!o6MSR3$z|c';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
