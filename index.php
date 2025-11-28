@@ -26,157 +26,143 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtDevata — Login Panel</title>
+    <title>ARTDEVATA PANEL — Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f241d 100%);
-        }
-        .btn-tosca {
-            background: linear-gradient(to right, #10b981, #34d399);
-        }
-        .btn-tosca:hover {
-            background: linear-gradient(to right, #059669, #10b981);
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
-            transform: translateY(-3px);
-        }
-        .glass-card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(16px);
-            box-shadow: 0 0 60px rgba(16, 185, 129, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .text-gradient {
-            background: linear-gradient(to right, #10b981, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        body { font-family: 'Poppins', sans-serif; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .card-float { animation: float 8s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .glow { box-shadow: 0 0 40px rgba(34, 197, 94, 0.3); }
+        .btn-neon:hover { box-shadow: 0 0 25px rgba(34, 197, 94, 0.9); transform: translateY(-3px); }
     </style>
 </head>
-<body class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden text-white">
+<body class="bg-gradient-to-br from-[#0f0f23] via-[#1a1a2e] to-[#16213e] min-h-screen flex flex-col lg:flex-row items-center justify-center relative overflow-hidden">
 
-    <!-- Background Blur Orbs -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-emerald-500/30 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-teal-600/30 rounded-full blur-3xl"></div>
+    <!-- Background Art -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-green-500 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-600 rounded-full blur-3xl animate-pulse delay-1000"></div>
     </div>
 
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-12">
-
-        <!-- Kiri: Hero Section (Persis seperti website ArtDevata) -->
-        <div class="text-center lg:text-left space-y-10">
-
-            <!-- Logo -->
-            <div class="flex items-center justify-center lg:justify-start gap-4">
-                <div class="w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center">
-                    <i class="fas fa-play text-white text-2xl rotate-90"></i>
-                </div>
-                <span class="text-4xl font-black">ArtDevata</span>
+    <!-- Kiri: Branding (di mobile jadi atas) -->
+    <div class="flex-1 flex items-center justify-center p-8 lg:p-16 text-white order-2 lg:order-1">
+        <div class="max-w-lg text-center lg:text-left space-y-10">
+            <div>
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black orbitron leading-tight">
+                    ART<span class="text-green-400">DEVATA</span>
+                </h1>
+                <p class="text-xl sm:text-3xl mt-3 text-green-300 font-light">FTP & Hosting Panel</p>
             </div>
 
-            <!-- Badge -->
-            <div class="inline-flex items-center gap-3 px-6 py-3 bg-emerald-500/20 rounded-full border border-emerald-500/40">
-                <i class="fas fa-sparkles text-emerald-400"></i>
-                <span class="text-emerald-400 font-semibold">Solusi IT Premium</span>
-            </div>
-
-            <!-- Judul -->
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
-                Wujudkan Bisnis Digital<br>
-                <span class="text-gradient">Anda Bersama Kami</span>
-            </h1>
-
-            <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-emerald-400">Website Development</p>
-
-            <p class="text-lg text-gray-300 max-w-2xl leading-relaxed">
-                Kami menyediakan solusi IT terpadu dari pengembangan website, hosting & domain,<br>
-                instalasi CCTV, hingga IT support untuk mendukung transformasi digital bisnis Anda.
+            <p class="text-base sm:text-lg opacity-90 leading-relaxed">
+                Kelola semua FTP, domain, dan file hosting kamu dalam satu dashboard canggih, cepat, dan indah.
             </p>
 
-            <!-- Tombol -->
-            <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start pt-4">
-                <a href="#" class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition flex items-center justify-center gap-3">
-                    <i class="fas fa-list-ul"></i> Lihat Layanan
-                </a>
-                <a href="#" class="px-8 py-4 btn-tosca rounded-full font-bold flex items-center justify-center gap-3 shadow-lg transition">
-                    Mulai Proyek <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <!-- Stats -->
-            <div class="flex justify-center lg:justify-start gap-16 pt-8">
-                <div class="text-center">
-                    <div class="text-5xl font-black text-emerald-400">24/7</div>
-                    <p class="text-gray-400 text-sm">Dukungan Tersedia</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 card-float">
+                    <span class="material-icons text-5xl text-green-400 mb-3 block">folder_shared</span>
+                    <h3 class="text-lg font-bold">FTP Manager</h3>
+                    <p class="text-sm opacity-80">Upload, download, edit file langsung dari browser</p>
                 </div>
-                <div class="text-center">
-                    <div class="text-5xl font-black text-emerald-400">99.9%</div>
-                    <p class="text-gray-400 text-sm">Jaminan Uptime</p>
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 card-float" style="animation-delay: 0.4s;">
+                    <span class="material-icons text-5xl text-blue-400 mb-3 block">language</span>
+                    <h3 class="text-lg font-bold">Domain Control</h3>
+                    <p class="text-sm opacity-80">Atur root path & akses web instan</p>
                 </div>
             </div>
-        </div>
 
-        <!-- Kanan: Form Login -->
-        <div class="w-full max-w-md">
-            <div class="glass-card rounded-3xl p-10">
-                <div class="text-center mb-10">
-                    <h2 class="text-4xl font-bold">Welcome Back</h2>
-                    <p class="text-gray-400 mt-2">Masuk ke Panel ArtDevata</p>
+            <div class="flex items-center justify-center lg:justify-start gap-4 mt-10">
+                <div class="flex -space-x-3">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-4 border-[#0f0f23]" alt="">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-4 border-[#0f0f23]" alt="">
+                    <img src="https://randomuser.me/api/portraits/men/86.jpg" class="w-10 h-10 rounded-full border-4 border-[#0f0f23]" alt="">
                 </div>
-
-                <?php if (!empty($errors)): ?>
-                    <div class="bg-red-500/20 border border-red-500/50 text-red-300 px-5 py-4 rounded-xl mb-6 text-sm">
-                        <?php foreach ($errors as $e): ?>
-                            <p><?= htmlspecialchars($e) ?></p>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-
-                <form method="POST" class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Email</label>
-                        <input type="email" name="email" required
-                               class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-xl focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/30 transition placeholder-gray-500"
-                               placeholder="you@domain.com" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Password</label>
-                        <input type="password" name="password" required
-                               class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-xl focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/30 transition placeholder-gray-500"
-                               placeholder="••••••••">
-                    </div>
-
-                    <button type="submit" class="w-full py-5 btn-tosca rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg transition">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Masuk ke Panel
-                    </button>
-                </form>
-
-                <div class="mt-8 text-center text-gray-400">
-                    Belum punya akun? 
-                    <a href="register.php" class="text-emerald-400 font-bold hover:underline">Daftar Gratis</a>
-                </div>
-
-                <p class="mt-10 text-center text-xs text-gray-500">
-                    © 2025 ArtDevata • Solusi IT Premium Indonesia
-                </p>
+                <p class="text-sm opacity-80">Digunakan oleh <strong class="text-green-400">500+ developer</strong> Indonesia</p>
             </div>
         </div>
     </div>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/6281234567890" target="_blank" 
-       class="fixed bottom-6 right-6 w-16 h-16 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center shadow-2xl z-50 transition transform hover:scale-110">
-        <i class="fab fa-whatsapp text-3xl text-white"></i>
-    </a>
+    <!-- Kanan: Form Login (di mobile jadi bawah) -->
+    <div class="flex-1 flex items-center justify-center p-8 order-1 lg:order-2 w-full lg:max-w-md">
+        <div class="bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 w-full glow card-float">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-gray-800 orbitron">Welcome Back</h2>
+                <p class="text-gray-600 mt-2">Masuk ke ARTDEVATA PANEL</p>
+            </div>
+
+            <!-- Error Messages -->
+            <?php if (!empty($errors)): ?>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-6 text-sm">
+                    <ul class="list-disc list-inside space-y-1">
+                        <?php foreach ($errors as $e): ?>
+                            <li><?= htmlspecialchars($e) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+
+            <!-- Login Form -->
+            <form method="POST" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                    <input type="email" name="email" required
+                           class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-4 focus:ring-green-500 focus:border-transparent transition text-lg"
+                           placeholder="you@domain.com" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                    <input type="password" name="password" required
+                           class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-4 focus:ring-green-500 focus:border-transparent transition text-lg"
+                           placeholder="••••••••">
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold text-xl py-5 rounded-xl hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-300 shadow-lg btn-neon">
+                    <span class="flex items-center justify-center gap-3">
+                        <span class="material-icons">login</span>
+                        Masuk ke Panel
+                    </span>
+                </button>
+            </form>
+
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">
+                    Belum punya akun?
+                    <a href="register.php" class="text-green-600 font-bold hover:underline">
+                        Daftar Gratis Sekarang
+                    </a>
+                </p>
+            </div>
+
+            <div class="mt-10 text-center text-xs text-gray-500">
+                © 2025 ARTDEVATA PANEL • Dibuat dengan <span class="text-red-500">♥</span> untuk developer Indonesia
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fade in saat scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card-float').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000');
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
